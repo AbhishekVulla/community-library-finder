@@ -14,49 +14,66 @@ def format_book_card(book):
         with st.container():
             # Adding some spacing and border with consistent height for better alignment
             st.markdown(f"""
-            <div style="padding: 15px; margin-bottom: 20px; border-radius: 8px; 
+            <div style="padding: 18px; margin-bottom: 25px; border-radius: 12px; 
                         border: 1px solid #e0e0e0; background-color: white; 
-                        box-shadow: 0 2px 5px rgba(0,0,0,0.05); height: 100%;">
+                        box-shadow: 0 3px 10px rgba(0,0,0,0.08); height: 450px; overflow: hidden;">
             """, unsafe_allow_html=True)
             
             # Show cover image with fixed height to maintain alignment
             st.image(
                 cover_url, 
                 width=180, 
-                use_container_width=True,  # Updated from deprecated use_column_width
+                use_container_width=True,
                 output_format="JPEG"  # Specify format for better compatibility
             )
             
-            # Book title with consistent styling
+            # Book title with consistent styling and Al Khor branding color
             st.markdown(f"""
-            <h3 style="margin-top: 10px; margin-bottom: 5px; font-size: 1.2rem; 
-                        height: 40px; overflow: hidden; text-overflow: ellipsis;">
+            <h3 style="margin-top: 15px; margin-bottom: 8px; font-size: 1.25rem; color: #873600;
+                      height: 48px; overflow: hidden; text-overflow: ellipsis; font-weight: 600;">
                 {book['title']}
             </h3>
             """, unsafe_allow_html=True)
             
-            # Author
-            st.markdown(f"**Author:** {book['author']}")
+            # Author with better styling
+            st.markdown(f"""
+            <p style="margin-bottom: 12px; font-size: 1rem; color: #555;">
+                <strong>Author:</strong> {book['author']}
+            </p>
+            """, unsafe_allow_html=True)
             
-            # Metadata (genre, age group, popularity) in a more compact format
-            col1, col2 = st.columns(2)
-            with col1:
-                st.markdown(f"**Genre:** {book['genre']}")
-            with col2:
-                st.markdown(f"**Age Group:** {book['age_group']}")
+            # Metadata (genre, age group) with better styling
+            st.markdown(f"""
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                <div>
+                    <span style="font-weight: 600; color: #444;">Genre:</span> 
+                    <span style="color: #555;">{book['genre']}</span>
+                </div>
+                <div>
+                    <span style="font-weight: 600; color: #444;">Age Group:</span> 
+                    <span style="color: #555;">{book['age_group']}</span>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
             
             # Popularity indicator (stars)
             popularity = min(max(book['popularity'], 1), 5)  # Ensure between 1-5
             stars = "⭐" * popularity
-            st.markdown(f"**Popularity:** {stars}")
+            st.markdown(f"""
+            <p style="margin-bottom: 12px;">
+                <strong style="color: #444;">Rating:</strong> <span>{stars}</span>
+            </p>
+            """, unsafe_allow_html=True)
             
             # Description (with truncation if too long)
             description = book['description']
-            if len(description) > 150:  # Shortened a bit for better card layout
-                description = description[:150] + "..."
+            if len(description) > 180:  # Slightly longer for better readability
+                description = description[:180] + "..."
+            
             st.markdown(f"""
-            <div style="height: 100px; overflow: hidden;">
-                <strong>Description:</strong> {description}
+            <div style="height: 130px; overflow: hidden; margin-top: 5px; border-top: 1px solid #eee; padding-top: 12px;">
+                <strong style="color: #444;">Description:</strong>
+                <p style="color: #555; font-size: 0.95rem; line-height: 1.4; margin-top: 5px;">{description}</p>
             </div>
             """, unsafe_allow_html=True)
             

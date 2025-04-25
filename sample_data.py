@@ -44,7 +44,7 @@ SAMPLE_BOOKS = [
         "genre": "Classic Literature",
         "age_group": "Teens & Adults",
         "description": "A novel set in the American South during the 1930s, dealing with serious issues of racial inequality and moral growth as seen through the eyes of a young girl named Scout Finch.",
-        "cover_url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/To_Kill_a_Mockingbird_%28first_edition_cover%29.jpg",
+        "cover_url": "https://cdn.pixabay.com/photo/2017/06/08/15/25/book-2384160_960_720.jpg",
         "popularity": 5
     },
     {
@@ -172,5 +172,41 @@ SAMPLE_BOOKS = [
         "description": "A beautifully illustrated collection of short stories set in Qatar's desert landscape, teaching children about local wildlife and traditions.",
         "cover_url": "https://cdn.pixabay.com/photo/2016/11/23/15/32/wooden-floor-1853400_960_720.jpg",
         "popularity": 4
+    },
+    {
+        "title": "Islamic Architecture in Qatar",
+        "author": "Hassan Al-Qattan",
+        "genre": "Art & Architecture",
+        "age_group": "Teens & Adults",
+        "description": "A comprehensive exploration of Qatar's architectural heritage, from traditional mosque designs to modern Islamic-inspired buildings.",
+        "cover_url": "https://cdn.pixabay.com/photo/2019/04/04/17/58/mosque-4103606_960_720.jpg",
+        "popularity": 4
+    },
+    {
+        "title": "Voices of Migrant Workers in Qatar",
+        "author": "Aisha Al-Misnad",
+        "genre": "Cultural Studies",
+        "age_group": "Teens & Adults",
+        "description": "An insightful collection of interviews and stories from the diverse migrant workers who have contributed to Qatar's development.",
+        "cover_url": "https://cdn.pixabay.com/photo/2020/11/22/20/45/colorful-5767937_960_720.jpg",
+        "popularity": 5
+    },
+    {
+        "title": "Inclusive Education: A Global Perspective",
+        "author": "Dr. Sarah Johnson & Dr. Mohammed Al-Thani",
+        "genre": "Education",
+        "age_group": "Teens & Adults",
+        "description": "A collaborative work examining best practices in inclusive education across cultures, with case studies from Qatar and around the world.",
+        "cover_url": "https://cdn.pixabay.com/photo/2018/07/05/22/16/classroom-3519757_960_720.jpg",
+        "popularity": 4
+    },
+    {
+        "title": "The Wheelchair Champion",
+        "author": "Youssef Abdullah",
+        "genre": "Children's Fiction",
+        "age_group": "Small Kids",
+        "description": "An inspiring story about a young Qatari boy who uses a wheelchair and becomes a champion in adaptive sports, teaching children about inclusion and determination.",
+        "cover_url": "https://cdn.pixabay.com/photo/2021/10/16/06/13/basketball-6714552_960_720.jpg",
+        "popularity": 5
     }
 ]

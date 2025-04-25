@@ -42,17 +42,47 @@ def reset_all_filters():
     st.session_state.search_query = ''
     st.session_state.page = 'home'
 
-# Al Khor Community Library Branding
-col1, col2 = st.columns([1, 4])
-with col1:
-    st.image("https://cdn.pixabay.com/photo/2016/01/27/04/32/books-1163695_960_720.jpg", width=100)
-with col2:
-    st.markdown("""
-    <div style="background: linear-gradient(to right, #873600, #b06000); padding: 10px; border-radius: 10px;">
-        <h1 style="color: white; margin-bottom: 0;">📚 Al Khor Community Library</h1>
-        <p style="color: #f0f0f0; font-size: 1.1em;">Exploring Knowledge Together in Qatar</p>
+# Al Khor Community Library Branding - Improved header with modern design
+st.markdown("""
+<div style="
+    background: linear-gradient(135deg, #873600 0%, #D35400 100%);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+">
+    <div style="
+        background-color: rgba(255,255,255,0.9);
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    ">
+        <span style="font-size: 40px;">📚</span>
     </div>
-    """, unsafe_allow_html=True)
+    <div>
+        <h1 style="color: white; margin-bottom: 5px; font-weight: 700; text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">Al Khor Community Library</h1>
+        <p style="color: #f8f8f8; font-size: 1.2em; margin: 0; font-style: italic;">Exploring Knowledge Together in Qatar</p>
+    </div>
+    <div style="
+        position: absolute;
+        right: -20px;
+        top: -20px;
+        width: 150px;
+        height: 150px;
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+        border-radius: 50%;
+    "></div>
+</div>
+""", unsafe_allow_html=True)
 
 # Navigation/Home button when not on home page
 if st.session_state.page != 'home':
@@ -60,11 +90,15 @@ if st.session_state.page != 'home':
         set_page('home')
     st.markdown("<hr>", unsafe_allow_html=True)
 
-# App description
+# Enhanced App description with diversity focus
 st.markdown("""
-    <div style="background-color: #f0f8ff; padding: 15px; border-radius: 10px; border-left: 5px solid #873600; margin-bottom: 20px;">
-        <p style="margin: 0;">Discover new books from Al Khor Community Library collection or suggest titles you'd like to see added. 
-        Use the filters and search to find your next great read! This digital catalog is designed to enhance your library experience.</p>
+    <div style="background: linear-gradient(to right, #f0f8ff, #fff); padding: 20px; border-radius: 10px; 
+            border-left: 5px solid #873600; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+        <h2 style="color: #873600; margin-top: 0; margin-bottom: 10px; font-size: 1.3rem;">Welcome to Al Khor Community's Digital Library</h2>
+        <p style="margin-bottom: 12px; line-height: 1.5;">Discover books from our diverse collection representing Qatar's multicultural community. 
+        Our catalog features works from Qatari authors, global literature, and resources that celebrate inclusivity.</p>
+        <p style="margin: 0; line-height: 1.5;">Use our intuitive filters to find your next great read or suggest new titles that promote 
+        understanding across cultures. Our mission is to provide equal access to knowledge for all Al Khor Community members.</p>
     </div>
 """, unsafe_allow_html=True)
 
@@ -75,8 +109,8 @@ with tab1:
     # Sidebar for filters with enhanced styling
     with st.sidebar:
         st.markdown("""
-        <div style="padding: 10px; background-color: #f8f9fa; border-radius: 8px; margin-bottom: 15px;">
-            <h3 style="color: #7E57C2; margin-top: 0;">📚 Filter Books</h3>
+        <div style="padding: 15px; background: linear-gradient(135deg, #873600 0%, #D35400 100%); border-radius: 12px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            <h3 style="color: white; margin-top: 0; font-weight: 600; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">📚 Filter Books</h3>
         </div>
         """, unsafe_allow_html=True)
         
@@ -236,10 +270,18 @@ with tab1:
 with tab2:
     st.header("📝 Suggest a Book for the Library")
     st.markdown("""
-        <div style="background-color: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-            Do you have a book recommendation for our library? Fill out this form to suggest 
-            a title you'd like to see in our collection! Your suggestions help us grow our library
-            to better serve the community.
+        <div style="background: linear-gradient(135deg, rgba(135, 54, 0, 0.1) 0%, rgba(211, 84, 0, 0.05) 100%); 
+                padding: 20px; border-radius: 12px; margin-bottom: 25px; border: 1px solid rgba(135, 54, 0, 0.2);">
+            <h3 style="color: #873600; margin-top: 0; margin-bottom: 10px;">Contribute to Our Diverse Collection</h3>
+            <p style="margin-bottom: 0;">Help us build a more inclusive library by suggesting books that represent 
+            different cultures, perspectives, and experiences. We especially welcome recommendations for:
+            <ul style="margin-top: 8px;">
+                <li>Books by Qatari and Middle Eastern authors</li>
+                <li>Literature featuring diverse characters and viewpoints</li>
+                <li>Books that promote cultural understanding and global awareness</li>
+                <li>Works in multiple languages that reflect our multinational community</li>
+            </ul>
+            </p>
         </div>
     """, unsafe_allow_html=True)
     
@@ -420,8 +462,12 @@ with tab3:
                     st.error("Please fill in all required fields (name, email, and visit date).")
     
     with col2:
-        # Right sidebar with helpful information
-        st.image("https://cdn.pixabay.com/photo/2016/10/30/05/43/reading-1782242_960_720.jpg", use_column_width=True)
+        # Right sidebar with helpful information - with proper card styling
+        st.markdown("""
+        <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px;">
+        """, unsafe_allow_html=True)
+        st.image("https://cdn.pixabay.com/photo/2021/09/05/16/57/library-6599540_960_720.jpg", use_container_width=True)
+        st.markdown("</div>", unsafe_allow_html=True)
         
         st.markdown("""
         <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin-top: 15px;">
@@ -437,14 +483,28 @@ with tab3:
         """, unsafe_allow_html=True)
         
         st.markdown("""
-        <div style="background-color: #f0f0f0; padding: 15px; border-radius: 5px; margin-top: 15px;">
-            <h4>🌟 Upcoming Library Events</h4>
-            <ul>
-                <li><strong>May 5, 2025</strong> - Author Meet & Greet: Qatari Literature</li>
-                <li><strong>May 12, 2025</strong> - Children's Story Hour (Ages 4-8)</li>
-                <li><strong>May 18, 2025</strong> - Book Club Discussion: Modern Arabic Fiction</li>
-                <li><strong>May 25, 2025</strong> - Research Workshop for Students</li>
+        <div style="background: linear-gradient(135deg, rgba(135, 54, 0, 0.05) 0%, rgba(211, 84, 0, 0.1) 100%); 
+                padding: 18px; border-radius: 10px; margin-top: 20px; border: 1px solid rgba(135, 54, 0, 0.1);">
+            <h4 style="color: #873600; margin-top: 0;">🌟 Cultural Diversity Events</h4>
+            <ul style="padding-left: 20px;">
+                <li style="margin-bottom: 8px;"><strong>May 5, 2025</strong> - <span style="color: #873600;">Author Meet & Greet:</span> 
+                Celebrated Qatari author Abdulaziz Al-Mahmoud discusses "The Corsair"</li>
+                
+                <li style="margin-bottom: 8px;"><strong>May 12, 2025</strong> - <span style="color: #873600;">Multilingual Children's Hour:</span> 
+                Stories in Arabic, English, and Hindi for ages 4-8</li>
+                
+                <li style="margin-bottom: 8px;"><strong>May 18, 2025</strong> - <span style="color: #873600;">Book Club:</span> 
+                Discussing "Girls of Riyadh" by Rajaa Alsanea - examining social change</li>
+                
+                <li style="margin-bottom: 8px;"><strong>May 25, 2025</strong> - <span style="color: #873600;">Cultural Exchange Workshop:</span> 
+                "Literature Across Borders" featuring expat and local writers</li>
+                
+                <li style="margin-bottom: 8px;"><strong>June 3, 2025</strong> - <span style="color: #873600;">Inclusive Reading Series:</span> 
+                Books featuring characters with diverse abilities and backgrounds</li>
             </ul>
-            <p style="font-style: italic; margin-top: 10px;">Check our events calendar for more activities!</p>
+            <p style="font-style: italic; margin-top: 15px; margin-bottom: 0; color: #555;">
+                Join us for these events celebrating Qatar's diverse community! 
+                <a href="#" style="color: #873600; text-decoration: none; font-weight: bold;">View full calendar</a>
+            </p>
         </div>
         """, unsafe_allow_html=True)
