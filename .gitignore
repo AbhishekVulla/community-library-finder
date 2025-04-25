@@ -1,0 +1,24 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.env
+.venv
+env/
+venv/
+ENV/
+
+# SQLite database files
+*.db-journal
+
+# Streamlit cache
+.streamlit/secrets.toml
+
+# Logs
+*.log
+
+# OS specific files
+.DS_Store
+Thumbs.db

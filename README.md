@@ -58,3 +58,5 @@ This project was developed as a college application showcase demonstrating:
 - User interface design and user experience considerations
 - Data visualization and analytics
 - Mobile-responsive web development techniques
+
+Made with ❤️ for community libraries
