@@ -8,7 +8,7 @@ SAMPLE_BOOKS = [
         "genre": "Children's Picture Book",
         "age_group": "Small Kids",
         "description": "A classic children's book that follows the journey of a caterpillar as it eats its way through various foods before transforming into a butterfly.",
-        "cover_url": "https://m.media-amazon.com/images/I/71KilybDOoL._AC_UF1000,1000_QL80_.jpg",
+        "cover_url": "https://cdn.pixabay.com/photo/2020/04/21/14/06/butterfly-5073183_960_720.jpg",
         "popularity": 5
     },
     {
@@ -35,7 +35,7 @@ SAMPLE_BOOKS = [
         "genre": "Fantasy",
         "age_group": "Teens & Adults",
         "description": "The first novel in the Harry Potter series that introduces us to Harry, a young wizard who discovers his magical heritage as he makes close friends and few enemies in his first year at Hogwarts School.",
-        "cover_url": "https://m.media-amazon.com/images/I/81iqZ2HHD-L._AC_UF1000,1000_QL80_.jpg",
+        "cover_url": "https://cdn.pixabay.com/photo/2016/09/08/10/28/magic-1653450_960_720.jpg",
         "popularity": 5
     },
     {
@@ -53,7 +53,7 @@ SAMPLE_BOOKS = [
         "genre": "Fantasy",
         "age_group": "Teens & Adults",
         "description": "A fantasy novel about the adventures of hobbit Bilbo Baggins, who embarks on a quest to win a share of the treasure guarded by dragon Smaug.",
-        "cover_url": "https://m.media-amazon.com/images/I/710+HcoP38L._AC_UF1000,1000_QL80_.jpg",
+        "cover_url": "https://cdn.pixabay.com/photo/2017/08/01/00/38/fairy-tales-2562761_960_720.jpg",
         "popularity": 4
     },
     {
@@ -71,7 +71,7 @@ SAMPLE_BOOKS = [
         "genre": "Children's Fiction",
         "age_group": "Small Kids",
         "description": "A story about a relationship between a young boy and a tree in a forest. The tree and the boy become best friends, and the tree always provides the boy with what he needs.",
-        "cover_url": "https://upload.wikimedia.org/wikipedia/en/7/79/The_Giving_Tree.jpg",
+        "cover_url": "https://cdn.pixabay.com/photo/2015/11/07/11/16/tree-1031192_960_720.jpg",
         "popularity": 4
     },
     {
@@ -80,7 +80,7 @@ SAMPLE_BOOKS = [
         "genre": "Dystopian Fiction",
         "age_group": "Teens & Adults",
         "description": "A dystopian novel set in Airstrip One, a province of the superstate Oceania in a world of perpetual war, omnipresent government surveillance, and public manipulation.",
-        "cover_url": "https://m.media-amazon.com/images/I/519zR2oIlmL._AC_UF1000,1000_QL80_.jpg",
+        "cover_url": "https://cdn.pixabay.com/photo/2017/06/29/07/31/eye-2453713_960_720.jpg",
         "popularity": 5
     },
     {
@@ -89,7 +89,7 @@ SAMPLE_BOOKS = [
         "genre": "Children's Picture Book",
         "age_group": "Small Kids",
         "description": "A mischievous cat comes to entertain two children on a rainy day, causing chaos in their house in the process.",
-        "cover_url": "https://upload.wikimedia.org/wikipedia/en/1/10/The_Cat_in_the_Hat.png",
+        "cover_url": "https://cdn.pixabay.com/photo/2017/07/24/02/10/cat-2533324_960_720.jpg",
         "popularity": 4
     },
     {
@@ -98,7 +98,7 @@ SAMPLE_BOOKS = [
         "genre": "Coming-of-Age Fiction",
         "age_group": "Teens & Adults",
         "description": "The story of Holden Caulfield, a teenage boy who has been expelled from prep school and is wandering around New York City, struggling with his own adolescence and alienation.",
-        "cover_url": "https://upload.wikimedia.org/wikipedia/commons/8/89/The_Catcher_in_the_Rye_%281951%2C_first_edition_cover%29.jpg",
+        "cover_url": "https://cdn.pixabay.com/photo/2019/03/09/09/02/rye-4044005_960_720.jpg",
         "popularity": 3
     },
     {
@@ -107,7 +107,7 @@ SAMPLE_BOOKS = [
         "genre": "Children's Fiction",
         "age_group": "Small Kids",
         "description": "The story of a pig named Wilbur and his friendship with a barn spider named Charlotte, who saves Wilbur from being slaughtered.",
-        "cover_url": "https://upload.wikimedia.org/wikipedia/en/f/fe/CharlotteWeb.png",
+        "cover_url": "https://cdn.pixabay.com/photo/2016/11/29/05/45/web-1867536_960_720.jpg",
         "popularity": 4
     },
     {
@@ -116,7 +116,7 @@ SAMPLE_BOOKS = [
         "genre": "Classic Literature",
         "age_group": "Teens & Adults",
         "description": "Set in the Jazz Age on Long Island, the novel depicts narrator Nick Carraway's interactions with mysterious millionaire Jay Gatsby and Gatsby's obsession to reunite with his former lover, Daisy Buchanan.",
-        "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/The_Great_Gatsby_Cover_1925_Retouched.jpg/800px-The_Great_Gatsby_Cover_1925_Retouched.jpg",
+        "cover_url": "https://cdn.pixabay.com/photo/2018/07/01/20/01/lighthouse-3510595_960_720.jpg",
         "popularity": 4
     },
     {
@@ -134,7 +134,43 @@ SAMPLE_BOOKS = [
         "genre": "Fiction",
         "age_group": "Teens & Adults",
         "description": "A novel about a young Andalusian shepherd who travels to the Egyptian pyramids in search of a treasure, only to find it at home.",
-        "cover_url": "https://m.media-amazon.com/images/I/51Z0nLAfLmL._AC_UF1000,1000_QL80_.jpg",
+        "cover_url": "https://cdn.pixabay.com/photo/2019/03/02/18/45/desert-4030571_960_720.jpg",
+        "popularity": 4
+    },
+    {
+        "title": "Qatar: Politics and the Challenges of Development",
+        "author": "Matthew Gray",
+        "genre": "Non-Fiction",
+        "age_group": "Teens & Adults",
+        "description": "This book discusses Qatar's unique development story, examining how the nation has managed its economic and social progress.",
+        "cover_url": "https://cdn.pixabay.com/photo/2019/09/10/05/38/doha-4465671_960_720.jpg",
+        "popularity": 4
+    },
+    {
+        "title": "The Pearl Qatar: A History",
+        "author": "Ahmed Al-Jaber",
+        "genre": "History",
+        "age_group": "Teens & Adults",
+        "description": "An exploration of the historic pearl industry in Qatar and how it shaped the nation's economy before the discovery of oil and gas.",
+        "cover_url": "https://cdn.pixabay.com/photo/2017/08/01/08/29/people-2563491_960_720.jpg",
+        "popularity": 5
+    },
+    {
+        "title": "Al Khor: Stories from Qatar's Northern Coast",
+        "author": "Maryam Al-Thani",
+        "genre": "Local History",
+        "age_group": "Teens & Adults",
+        "description": "A collection of historical accounts and personal stories from Al Khor, showcasing the rich heritage of this coastal community.",
+        "cover_url": "https://cdn.pixabay.com/photo/2020/01/20/18/50/coast-4781337_960_720.jpg",
+        "popularity": 5
+    },
+    {
+        "title": "Desert Tales for Children",
+        "author": "Fatima Al-Kuwari",
+        "genre": "Children's Fiction",
+        "age_group": "Small Kids",
+        "description": "A beautifully illustrated collection of short stories set in Qatar's desert landscape, teaching children about local wildlife and traditions.",
+        "cover_url": "https://cdn.pixabay.com/photo/2016/11/23/15/32/wooden-floor-1853400_960_720.jpg",
         "popularity": 4
     }
 ]

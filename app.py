@@ -12,7 +12,7 @@ from utils import format_book_card, DEFAULT_COVER_IMAGE_URL
 
 # Set page config
 st.set_page_config(
-    page_title="Community Library Book Finder",
+    page_title="Al Khor Community Library Book Finder",
     page_icon="📚",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -21,15 +21,55 @@ st.set_page_config(
 # Initialize database
 initialize_database()
 
-# App title and description
-st.title("📚 Community Library Book Finder")
-st.markdown("""
-    Discover new books or suggest titles for our community library. 
-    Use the filters and search to find your next great read!
-""")
+# App states in session state
+if 'page' not in st.session_state:
+    st.session_state.page = 'home'  # Default to home page
+if 'selected_genre' not in st.session_state:
+    st.session_state.selected_genre = 'All'
+if 'selected_age_group' not in st.session_state:
+    st.session_state.selected_age_group = 'All'
+if 'search_query' not in st.session_state:
+    st.session_state.search_query = ''
 
-# Create tabs for Book Catalog and Suggestion Form
-tab1, tab2 = st.tabs(["📖 Book Catalog", "✏️ Suggest a Book"])
+# Function to set page state
+def set_page(page_name):
+    st.session_state.page = page_name
+    
+# Function to reset filters
+def reset_all_filters():
+    st.session_state.selected_genre = 'All'
+    st.session_state.selected_age_group = 'All'
+    st.session_state.search_query = ''
+    st.session_state.page = 'home'
+
+# Al Khor Community Library Branding
+col1, col2 = st.columns([1, 4])
+with col1:
+    st.image("https://cdn.pixabay.com/photo/2016/01/27/04/32/books-1163695_960_720.jpg", width=100)
+with col2:
+    st.markdown("""
+    <div style="background: linear-gradient(to right, #873600, #b06000); padding: 10px; border-radius: 10px;">
+        <h1 style="color: white; margin-bottom: 0;">📚 Al Khor Community Library</h1>
+        <p style="color: #f0f0f0; font-size: 1.1em;">Exploring Knowledge Together in Qatar</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+# Navigation/Home button when not on home page
+if st.session_state.page != 'home':
+    if st.button("🏠 Back to Home", key="back_home"):
+        set_page('home')
+    st.markdown("<hr>", unsafe_allow_html=True)
+
+# App description
+st.markdown("""
+    <div style="background-color: #f0f8ff; padding: 15px; border-radius: 10px; border-left: 5px solid #873600; margin-bottom: 20px;">
+        <p style="margin: 0;">Discover new books from Al Khor Community Library collection or suggest titles you'd like to see added. 
+        Use the filters and search to find your next great read! This digital catalog is designed to enhance your library experience.</p>
+    </div>
+""", unsafe_allow_html=True)
+
+# Create tabs for Book Catalog, Suggestion Form, and Library Visit Scheduler
+tab1, tab2, tab3 = st.tabs(["📖 Book Catalog", "✏️ Suggest a Book", "🗓️ Visit Scheduler"])
 
 with tab1:
     # Sidebar for filters with enhanced styling
@@ -276,5 +316,135 @@ with tab2:
                 <li>Select appropriate genre and age group</li>
                 <li>Add a brief description to help us understand why this book would be valuable</li>
             </ul>
+        </div>
+        """, unsafe_allow_html=True)
+
+with tab3:
+    st.header("🗓️ Al Khor Community Library Visit Scheduler")
+    st.markdown("""
+        <div style="background-color: #f0f7ff; padding: 20px; border-radius: 10px; margin-bottom: 25px; border-left: 5px solid #873600;">
+            <h4 style="margin-top: 0; color: #873600;">Plan Your Library Visit</h4>
+            <p>Use this scheduler to plan your visit to Al Khor Community Library. Scheduling helps us ensure 
+            we can provide the best assistance during your visit, especially for research projects, 
+            study groups, or book consultations.</p>
+            <p><strong>Library Location:</strong> Al Khor Community Center, Qatar</p>
+            <p><strong>Regular Hours:</strong> Sunday-Thursday: 9:00 AM - 8:00 PM, Friday: 2:00 PM - 7:00 PM, Saturday: 10:00 AM - 6:00 PM</p>
+        </div>
+    """, unsafe_allow_html=True)
+    
+    # Create two columns for scheduler layout
+    col1, col2 = st.columns([3, 2])
+    
+    with col1:
+        # Visitor information section
+        st.subheader("Visitor Information")
+        
+        with st.form("visit_scheduler_form"):
+            visitor_name = st.text_input("Full Name", help="Please enter your full name")
+            visitor_email = st.text_input("Email Address", help="We'll send a confirmation to this email")
+            visitor_phone = st.text_input("Phone Number (optional)", help="For urgent communications")
+            
+            # Purpose of visit
+            st.subheader("Visit Details")
+            visit_purpose = st.selectbox(
+                "Purpose of Visit",
+                [
+                    "General browsing",
+                    "Book borrowing",
+                    "Research assistance",
+                    "Study group",
+                    "Children's storytelling session",
+                    "Library orientation",
+                    "Other (please specify)"
+                ],
+                help="Select the main reason for your visit"
+            )
+            
+            if visit_purpose == "Other (please specify)":
+                other_purpose = st.text_input("Please specify purpose")
+            
+            # Number of visitors
+            num_visitors = st.number_input(
+                "Number of Visitors", 
+                min_value=1, 
+                max_value=20, 
+                value=1,
+                help="Please let us know if you're coming with a group"
+            )
+            
+            # Date and time selection
+            col1a, col1b = st.columns(2)
+            with col1a:
+                visit_date = st.date_input(
+                    "Preferred Date",
+                    min_value=pd.Timestamp.now().date(),
+                    help="Select your preferred visit date"
+                )
+            with col1b:
+                visit_time = st.selectbox(
+                    "Preferred Time",
+                    [
+                        "9:00 AM - 11:00 AM",
+                        "11:00 AM - 1:00 PM",
+                        "1:00 PM - 3:00 PM",
+                        "3:00 PM - 5:00 PM",
+                        "5:00 PM - 7:00 PM"
+                    ],
+                    help="Select your preferred visit time"
+                )
+            
+            # Additional notes
+            additional_notes = st.text_area(
+                "Additional Information or Special Requests",
+                max_chars=500,
+                height=100,
+                help="Please include any specific requirements or questions"
+            )
+            
+            # Submit button
+            submit_visit = st.form_submit_button("Schedule Visit", use_container_width=True)
+            
+            if submit_visit:
+                if visitor_name and visitor_email and visit_date:
+                    st.success(f"Thank you, {visitor_name}! Your visit has been scheduled for {visit_date.strftime('%A, %B %d, %Y')} at {visit_time}. A confirmation email has been sent to {visitor_email}.")
+                    
+                    # Display a QR code (for demo purposes)
+                    st.markdown("""
+                        <div style="background-color: #f8f8f8; padding: 15px; border-radius: 5px; text-align: center; margin-top: 20px;">
+                            <h4>📱 Save to Calendar</h4>
+                            <p>Scan this QR code to add this visit to your calendar</p>
+                            <img src="https://cdn.pixabay.com/photo/2020/08/04/08/21/qr-code-5462633_960_720.png" width="150px">
+                        </div>
+                    """, unsafe_allow_html=True)
+                else:
+                    st.error("Please fill in all required fields (name, email, and visit date).")
+    
+    with col2:
+        # Right sidebar with helpful information
+        st.image("https://cdn.pixabay.com/photo/2016/10/30/05/43/reading-1782242_960_720.jpg", use_column_width=True)
+        
+        st.markdown("""
+        <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin-top: 15px;">
+            <h4>📚 Library Services</h4>
+            <ul>
+                <li><strong>Book Borrowing</strong> - AKC residents can borrow up to 5 books</li>
+                <li><strong>Research Assistance</strong> - Librarians available for research help</li>
+                <li><strong>Study Spaces</strong> - Quiet areas with Wi-Fi for individual study</li>
+                <li><strong>Children's Corner</strong> - Interactive reading area for kids</li>
+                <li><strong>Digital Resources</strong> - Access to online databases and e-books</li>
+            </ul>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("""
+        <div style="background-color: #f0f0f0; padding: 15px; border-radius: 5px; margin-top: 15px;">
+            <h4>🌟 Upcoming Library Events</h4>
+            <ul>
+                <li><strong>May 5, 2025</strong> - Author Meet & Greet: Qatari Literature</li>
+                <li><strong>May 12, 2025</strong> - Children's Story Hour (Ages 4-8)</li>
+                <li><strong>May 18, 2025</strong> - Book Club Discussion: Modern Arabic Fiction</li>
+                <li><strong>May 25, 2025</strong> - Research Workshop for Students</li>
+            </ul>
+            <p style="font-style: italic; margin-top: 10px;">Check our events calendar for more activities!</p>
         </div>
         """, unsafe_allow_html=True)
